@@ -1,7 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const app = express();
-//const cors = require('cors');
+const cors = require('cors');
 const { mongoose } = require('./database');
 
 //Configuración servidor
@@ -12,7 +12,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
     //servidor entienda formato json
 app.use(express.json());
-//app.use(cors({origin: 'http://localhost:4200'}));
+app.use(cors({origin: 'http://localhost:4200'}));
 //Routes
 app.use('/api' ,require('./routes/routes'));
 
