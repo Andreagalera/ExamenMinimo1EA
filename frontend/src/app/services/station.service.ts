@@ -27,10 +27,15 @@ export class StationService {
   }
   deleteBikeStation(stationId: string, bikeId: string){
     
-    return this.http.put(this.URL_API + '/', {"stationId": stationId, "bikeId": bikeId});
+    return this.http.delete(this.URL_API + `/${stationId}/${bikeId}`);
   }
   getInfooneStationgetInfo(_id: string):Observable<Station>{
     return this.http.get<Station>(this.URL_API + `/detail/${_id}`);
   }
+
+  getInfoStation(_id: string):Observable<Station>{
+    return this.http.get<Station>(this.URL_API + `/${_id}`);
+  }
+  
 
 }

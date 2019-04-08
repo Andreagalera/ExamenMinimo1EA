@@ -22,6 +22,7 @@ export class BikesComponent implements OnInit {
 
   constructor(private activatedRouter: ActivatedRoute, private stationService: StationService, private bikeService: BikeService) {
     this.station = new Station();
+    this.stationId="";
    }
 
   ngOnInit() {
@@ -34,10 +35,11 @@ export class BikesComponent implements OnInit {
       }
     });
     this.getBikes();
-    this.getInfooneStationgetInfo(this.station._id);
+    this.getInfoStation(this.station._id);
+    //this.getInfooneStationgetInfo(this.station._id);
   }
 
-  getInfooneStationgetInfo(_id: string){
+  /* getInfooneStationgetInfo(_id: string){
     this.stationService.getInfooneStationgetInfo(_id)
       .subscribe(res => {
         this.station = res;
@@ -45,7 +47,8 @@ export class BikesComponent implements OnInit {
       console.log(_id); 
       console.log(this.station);
       });
-  }
+  } */
+
 
   getBikes(){
     this.bikeService.getBikes()
@@ -54,6 +57,46 @@ export class BikesComponent implements OnInit {
         console.log("Hola");
         console.log(res);
       });
+  }
+
+  getInfoStation(_id: string){
+    this.stationService.getInfoStation(_id)
+    .subscribe(res => {
+      this.station = res;
+    console.log(res);
+    console.log(_id); 
+    console.log(this.station);
+    });
+    this.stationId = _id;
+
+  }
+
+  putBikeStation(_id: string){
+    this.bikeId = _id;
+    console.log("Station" + this.stationId);
+    console.log("Student" + this.bikeId);
+
+    this.stationService.putBikeStation(this.stationId, this.bikeId)
+    .subscribe(res => {
+      M.toast({html: 'Bike guardado'});
+      this.getBikes();
+      this.getInfoStation(this.stationId);
+    }); 
+  
+  }
+
+  deleteBikeStation(_id: string){
+    this.bikeId = _id;
+    console.log("Station" + this.stationId);
+    console.log("Student" + this.bikeId);
+
+    this.stationService.deleteBikeStation(this.stationId, this.bikeId)
+    .subscribe(res => {
+      M.toast({html: 'Bike eliminado'});
+      this.getBikes();
+      this.getInfoStation(this.stationId);
+    }); 
+  
   }
 
 

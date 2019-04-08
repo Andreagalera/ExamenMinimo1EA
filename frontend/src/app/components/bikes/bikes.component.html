@@ -1,5 +1,27 @@
-<h2>Station Detail of {{station.name}}</h2>
-  <p><b>Bikes:</b> {{station.bike}} </p>
+<div class="container">
+    <div class="row">
+        <div class="col s7">
+<h2>Station with Bike Detail of {{station.name}}</h2>
+  <table>
+      <thead>
+        <th>Name</th>
+        <th>Kms</th>
+        <th>Description</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let bike of station.bike">
+      <td>{{bike.name}}</td>
+      <td>{{bike.kms}}</td>
+      <td>{{bike.description}}</td>
+      <a (click)="deleteBikeStation(bike._id)">
+          <i class="material-icons">delete</i>
+        </a>    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+
 <div class="container">
         <div class="row">
             <div class="col s7">
@@ -15,7 +37,7 @@
                     <td>{{ bike.name}}</td>
                     <td>{{ bike.kms}}</td>
                     <td>{{ bike.description}}</td>
-                    <a >
+                    <a (click)="putBikeStation(bike._id)">
                             <i class="material-icons">add</i>
                           </a>
                   </tr>
