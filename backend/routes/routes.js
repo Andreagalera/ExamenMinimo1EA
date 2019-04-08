@@ -1,10 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json({
-        status: 'Api Works!'
-    });
-});
-
+const station = require('../controllers/stationcontroller');
+router.get('/stations', station.getStations);
+router.post('/stations', station.poststation);
 module.exports = router;
