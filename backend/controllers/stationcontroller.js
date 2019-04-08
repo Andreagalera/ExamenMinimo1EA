@@ -29,4 +29,25 @@ stationCtrl.getStations = async (req, res) => {
     }
 };
 
+//Put in station bike
+stationCtrl.putBikeStation= async (req, res) => {
+    const stationId = req.body.stationId;
+    const bikeId = req.body.bikeId;
+    let stationUpdated = await Station.findOneAndUpdate({_id: stationId}, {$addToSet: {bike: bikeId}});
+    res.status(200).send({message: "Bike added successfully to the station"})
+};
+
+//Delete in station bike 
+stationCtrl.deleteBikeStation= async (req, res) => {
+    const stationId = req.body.stationId;
+    const bikeId = req.body.bikeId;
+    let stationDeleted = await Station.findOneAndDelete({_id: stationId}, {$addToSet: {bike: bikeId}});
+    res.status(200).send({message: "Bike delete successfully to the station"})
+};
+
+//Get info de una stacion
+
+//Get info de una estacion populate
+
+
 module.exports = stationCtrl;

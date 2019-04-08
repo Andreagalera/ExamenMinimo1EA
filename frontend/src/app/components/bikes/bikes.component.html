@@ -1,0 +1,21 @@
+<div class="container">
+        <div class="row">
+            <div class="col s7">
+                <h2>All Students</h2>
+              <table>
+                <thead>
+                  <th>Name</th>
+                  <th>Kms</th>
+                  <th>Description</th>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let bike of bikesList">
+                    <td>{{ bike.name}}</td>
+                    <td>{{ bike.kms}}</td>
+                    <td>{{ bike.description}}</td>
+                  </tr>
+                </tbody>
+              </table>
+             </div>
+            </div>
+          </div>

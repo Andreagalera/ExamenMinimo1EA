@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+      <div class="col s7">
+        <h2>STATIONS</h2>
+        <table>
+          <thead>
+            <th>Name</th>
+            <th>State</th>
+            <th>Description</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let station of stationsList">
+              <td>{{ station.name}}</td>
+              <td>{{ station.state}}</td>
+              <td>{{ station.description}}</td>
+              <button class="btn right" [routerLink]="['/stations/stationsdetail', station._id]">Details</button>
+            </tr>
+          </tbody>
+        </table>
+      
+        </div>
+      </div>
+    </div>
