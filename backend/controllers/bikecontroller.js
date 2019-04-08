@@ -13,7 +13,8 @@ bikeCtrl.postBike = async (req, res) => {
     const bike = new Bike({
         name: req.body.name,
         kms: req.body.kms,
-        description: req.body.description
+        description: req.body.description,
+        assigned: req.body.assigned
     })
     console.log(bike);
     try{
