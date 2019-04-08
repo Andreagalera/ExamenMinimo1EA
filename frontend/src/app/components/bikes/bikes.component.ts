@@ -34,7 +34,19 @@ export class BikesComponent implements OnInit {
       }
     });
     this.getBikes();
+    this.getInfooneStationgetInfo(this.station._id);
   }
+
+  getInfooneStationgetInfo(_id: string){
+    this.stationService.getInfooneStationgetInfo(_id)
+      .subscribe(res => {
+        this.station = res;
+      console.log(res);
+      console.log(_id); 
+      console.log(this.station);
+      });
+  }
+
   getBikes(){
     this.bikeService.getBikes()
       .subscribe(res => {

@@ -1,7 +1,9 @@
+<h2>Station Detail of {{station.name}}</h2>
+  <p><b>Bikes:</b> {{station.bike}} </p>
 <div class="container">
         <div class="row">
             <div class="col s7">
-                <h2>All Students</h2>
+                <h2>UNASSIGNED BIKES</h2>
               <table>
                 <thead>
                   <th>Name</th>
@@ -13,6 +15,9 @@
                     <td>{{ bike.name}}</td>
                     <td>{{ bike.kms}}</td>
                     <td>{{ bike.description}}</td>
+                    <a >
+                            <i class="material-icons">add</i>
+                          </a>
                   </tr>
                 </tbody>
               </table>
